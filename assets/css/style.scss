@@ -1,0 +1,375 @@
+/*
+@File: Emilono Template Styles
+
+* This file contains the styling for the actual template, this
+is the file you need to edit to change the look of the
+template.
+
+This files table contents are outlined below>>>>>
+
+*******************************************
+*******************************************
+
+** - Default CSS
+** - Preloader CSS
+** - Coming Soon CSS
+*/
+
+/*================================================
+Default CSS
+=================================================*/
+@import url('https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap');
+
+$main-font-family: 'Open Sans', sans-serif;
+$optional-font-family: 'Dosis', sans-serif;
+$main-color: #4ac728;
+$gradient-color: linear-gradient(to right, #49c628, #53d23c, #5ddd4e, #66e95f, #70f570);
+$optional-color: #FC4A1A;
+$optional-gradient-color: linear-gradient(to right, #fc4a1a, #fd6b12, #fc8712, #faa01f, #f7b733);
+$black-color: #000000;
+$white-color: #ffffff;
+$transition: .5s;
+
+body {
+    padding: 0;
+    margin: 0;
+    font: {
+        family: $main-font-family;
+    }
+}
+a {
+    text-decoration: none;
+    transition: $transition;
+
+    &:hover, &:focus {
+        text-decoration: none;
+    }
+}
+p {
+    font-size: 14px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+.d-table {
+    width: 100%;
+    height: 100%;
+
+    &-cell {
+        vertical-align: middle;
+    }
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: $optional-font-family;
+    color: $black-color;
+}
+img {
+    max-width: 100%;
+}
+/*btn-primary*/
+.btn {
+    border: none;
+    line-height: initial;
+    border-radius: 30px;
+    transition: $transition;
+    padding: 10px 32px 12px;
+    position: relative;
+    z-index: 1;
+    opacity: 1 !important;
+    font: {
+        size: 16px;
+        family: $optional-font-family;
+        weight: 600;
+    }
+}
+.btn-primary {
+    color: $white-color;
+    background-color: transparent;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 30px;
+        background: $gradient-color;
+        transition: $transition;
+        z-index: -1;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 30px;
+        background: $optional-gradient-color;
+        transition: $transition;
+        z-index: -1;
+        opacity: 0;
+        visibility: hidden;
+    }
+    &:hover, &:focus {
+        background: transparent !important;
+        box-shadow: unset !important;
+        color: $white-color !important;
+
+        &::before {
+            opacity: 0;
+            visibility: hidden;
+        }
+        &::after {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+/*form-control*/
+.form-control {
+    height: 45px;
+    border: 1px solid #eeeeee;
+    background-color: transparent;
+    border-radius: 0;
+    transition: $transition;
+    color: $black-color;
+    line-height: initial;
+    padding-left: 13px;
+    font: {
+        size: 14px;
+    }
+    &:hover, &:focus {
+        box-shadow: unset;
+    }
+    &::placeholder {
+        color: #999999;
+    }
+    &:focus {
+        box-shadow: unset;
+        border-color: $main-color;
+    }
+}
+
+/*================================================
+Preloader CSS
+=================================================*/
+.preloader {
+    position: fixed;
+    left: 0;
+    width: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    z-index: 9999999;
+    background-color: $main-color;
+
+    .spinner {
+        width: 60px;
+        height: 60px;
+        background-color: $white-color;
+        margin: 0 auto;
+        animation: sk-rotatePlane 1.2s infinite ease-in-out;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 41%;
+        transform: translateY(-41%);
+    }
+}
+@keyframes sk-rotatePlane {
+    0% { 
+        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    } 50% { 
+        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    } 100% { 
+        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    }
+}
+
+/*================================================
+Coming Soon Area CSS
+=================================================*/
+.coming-soon-area {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+.coming-soon-content {
+    height: 100vh;
+    position: relative;
+    padding: {
+        left: 100px;
+        right: 100px;
+    }
+    .logo {
+        position: absolute;
+        left: 100px;
+        top: 30px;
+    }
+    #timer {
+        margin: {
+            top: 10px;
+            bottom: 25px;
+        }
+        div {
+            display: inline-block;
+            color: $black-color;
+            text-align: center;
+            position: relative;
+            margin: {
+                left: 30px;
+                right: 30px;
+            }
+            font: {
+                size: 40px;
+                family: $optional-font-family;
+                weight: 700;
+            }
+            span {
+                display: block;
+                text-transform: capitalize;
+                color: #1e1b1b;
+                text-transform: uppercase;
+                font: {
+                    size: 14px;
+                    weight: 600;
+                }
+            }
+            &:last-child {
+                margin-right: 0;
+
+                &::before {
+                    display: none;
+                }
+            }
+            &:first-child {
+                margin-left: 0;
+            }
+            &::before {
+                content: ':';
+                position: absolute;
+                right: -39px;
+                top: -23px;
+                font-size: 60px;
+                color: $black-color;
+            }
+        }
+    }
+    h1 {
+        line-height: 1.3;
+        margin: {
+            bottom: 30px;
+        }
+        font: {
+            size: 40px;
+            weight: 700;
+        }
+    }
+    form {
+        max-width: 520px;
+        position: relative;
+
+        .form-control {
+            height: 50px;
+            border: none;
+            box-shadow: 0px 5px 28.5px 1.5px rgba(149, 152, 200, .2);
+            border-radius: 30px;
+            padding-left: 20px;
+        }
+        .btn {
+            padding: 15px 28px;
+            box-shadow: 0px 5px 28.5px 1.5px rgba(149, 152, 200, .2);
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 50px;
+            line-height: 49px;
+            padding: {
+                top: 0;
+                bottom: 0;
+            }
+        }
+        #validator-newsletter {
+            color: $black-color;
+            font-size: 14px;
+            position: absolute;
+            left: 0;
+            bottom: -32px;
+
+            &.validation-danger {
+                color: red;
+            }
+        }
+    }
+    .social {
+        position: absolute;
+        left: 100px;
+        bottom: 30px;
+        text-align: center;
+
+        ul {
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style-type: none;
+
+            li {
+                display: inline-block;
+                margin: 0 2px;
+
+                a {
+                    width: 35px;
+                    height: 35px;
+                    line-height: 37px;
+                    display: block;
+                    border-radius: 50%;
+                    background-color: #dddddd;
+                    color: $black-color;
+                    font-size: 14px;
+
+                    &.twitter {
+                        background-color: #1da1f2;
+                        color: $white-color;
+                    }
+                    &.youtube {
+                        background-color: #ff0000;
+                        color: $white-color;
+                    }
+                    &.facebook {
+                        background-color: #3b5998;
+                        color: $white-color;
+                    }
+                    &.linkedin {
+                        background-color: #0077b5;
+                        color: $white-color;
+                    }
+                    &.instagram {
+                        background-color: #c13584;
+                        color: $white-color;
+                    }
+                    &:hover {
+                        background-color: $main-color;
+                        color: $white-color;
+                    }
+                }
+            }
+        }
+    }
+}
+.coming-soon-image {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: {
+        image: url(../../assets/img/coming-soon-bg.jpg);
+        position: center center;
+        size: cover;
+        repeat: no-repeat;
+    }
+    img {
+        display: none;
+    }
+}
